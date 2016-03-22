@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
- * Collection of thing wrappers around ORMLite
+ * Collection of thin wrappers around ORMLite
  * for usage with RxJava.
  */
 public final class OrmLiteRx {
