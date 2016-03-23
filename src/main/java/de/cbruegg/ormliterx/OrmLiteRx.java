@@ -133,7 +133,7 @@ public final class OrmLiteRx {
     /**
      * @see Dao#queryForId(Object)
      */
-    public static <T, ID> Observable<T> queryForFirst(final Dao<T, ID> dao, final ID id) {
+    public static <T, ID> Observable<T> queryForId(final Dao<T, ID> dao, final ID id) {
         return Observable.fromCallable(new Callable<T>() {
             public T call() throws Exception {
                 return dao.queryForId(id);
