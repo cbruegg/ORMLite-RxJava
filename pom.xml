@@ -6,7 +6,7 @@
 
     <groupId>de.cbruegg</groupId>
     <artifactId>ormlite-rxjava</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <repositories>
         <repository>
