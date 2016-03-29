@@ -2,10 +2,7 @@ package de.cbruegg.ormliterx;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
-import com.j256.ormlite.stmt.QueryBuilder;
-import com.j256.ormlite.stmt.RuntimeExceptionQueryBuilder;
-import com.j256.ormlite.stmt.RuntimeExceptionWhere;
-import com.j256.ormlite.stmt.Where;
+import com.j256.ormlite.stmt.*;
 import rx.Observable;
 
 import java.util.List;
@@ -170,6 +167,50 @@ public final class OrmLiteRx {
         return Observable.fromCallable(new Callable<List<T>>() {
             public List<T> call() throws Exception {
                 return dao.queryForEq(column, o);
+            }
+        });
+    }
+
+    /**
+     * @see RawQueryBuilder#selectRaw(Dao, String, Object...)
+     */
+    public static <T, ID> Observable<List<T>> queryRaw(final Dao<T, ID> dao, final String statement, final Object... args) {
+        return Observable.fromCallable(new Callable<List<T>>() {
+            public List<T> call() throws Exception {
+                return RawQueryBuilder.selectRaw(dao, statement, args);
+            }
+        });
+    }
+
+    /**
+     * @see RawQueryBuilder#selectRaw(Dao, String, Object...)
+     */
+    public static <T, ID> Observable<List<T>> queryRaw(final RuntimeExceptionDao<T, ID> dao, final String statement, final Object... args) {
+        return Observable.fromCallable(new Callable<List<T>>() {
+            public List<T> call() throws Exception {
+                return RawQueryBuilder.selectRaw(dao.getWrappedDao(), statement, args);
+            }
+        });
+    }
+
+    /**
+     * @see RawQueryBuilder#selectLongRaw(Dao, String, Object...)
+     */
+    public static <T, ID> Observable<Long> queryLongRaw(final Dao<T, ID> dao, final String statement, final Object... args) {
+        return Observable.fromCallable(new Callable<Long>() {
+            public Long call() throws Exception {
+                return RawQueryBuilder.selectLongRaw(dao, statement, args);
+            }
+        });
+    }
+
+    /**
+     * @see RawQueryBuilder#selectLongRaw(Dao, String, Object...)
+     */
+    public static <T, ID> Observable<Long> queryLongRaw(final RuntimeExceptionDao<T, ID> dao, final String statement, final Object... args) {
+        return Observable.fromCallable(new Callable<Long>() {
+            public Long call() throws Exception {
+                return RawQueryBuilder.selectLongRaw(dao.getWrappedDao(), statement, args);
             }
         });
     }
