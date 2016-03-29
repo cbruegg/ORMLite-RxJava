@@ -6,7 +6,7 @@
 
     <groupId>de.cbruegg</groupId>
     <artifactId>ormlite-rxjava</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <repositories>
         <repository>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>com.github.cbruegg</groupId>
             <artifactId>ormlite-core</artifactId>
-            <version>ormlite-core-4.49-plus</version>
+            <version>ormlite-core-4.49-plus-1.0</version>
         </dependency>
     </dependencies>
 
